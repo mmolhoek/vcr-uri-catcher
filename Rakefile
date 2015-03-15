@@ -15,10 +15,10 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
   gem.name = "vcr-uri-catcher"
-  gem.homepage = "http://github.com/mmolhoek/vcr-uri-catcher"
+  gem.homepage = "https://github.com/mmolhoek/vcr-uri-catcher"
   gem.license = "MIT"
-  gem.summary = %Q{execute arbitrary code (like {raise RestClient::RequestTimeout}) the moment vcr tries to acces certain uri('s)}
-  gem.description = %Q{execute arbitrary code (like {raise RestClient::RequestTimeout}) the moment vcr tries to acces certain uri('s)}
+  gem.summary = %Q{execute arbitrary code (like {raise RestClient::RequestTimeout}) the moment vcr tries to access certain configurable uri('s)}
+  gem.description = %Q{execute arbitrary code (like {raise RestClient::RequestTimeout}) the moment vcr tries to access certain configurable uri('s)}
   gem.email = "mischamolhoek@gmail.com"
   gem.authors = ["Mischa Molhoek"]
   # dependencies defined in Gemfile
