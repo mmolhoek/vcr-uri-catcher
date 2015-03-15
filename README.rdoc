@@ -1,6 +1,13 @@
 = vcr-uri-catcher
 
-Description goes here.
+I have been using VCR for a while now and what i was missing was a way to test network failures depite of the fact that those uri's were already recorded by vcr.
+This little gem profides just that.
+
+after requiring the gem in the features/support/vcr.rb somewhere at the bottom
+'''code
+require 'vcr-uri-catcher'
+'''
+
 
 == Contributing to vcr-uri-catcher
  
