@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "vcr-uri-catcher"
   gem.homepage = "http://github.com/mmolhoek/vcr-uri-catcher"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{execute arbitrary code (like {raise RestClient::RequestTimeout}) the moment vcr tries to acces certain uri('s)}
+  gem.description = %Q{execute arbitrary code (like {raise RestClient::RequestTimeout}) the moment vcr tries to acces certain uri('s)}
   gem.email = "mischamolhoek@gmail.com"
   gem.authors = ["Mischa Molhoek"]
   # dependencies defined in Gemfile

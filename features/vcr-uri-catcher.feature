@@ -1,9 +1,14 @@
-Feature: something something
-  In order to something something
-  A user something something
-  something something something
-
-  Scenario: something something
-    Given inspiration
-    When I create a sweet new gem
-    Then everyone should see how awesome I am
+Feature: Using vcr-uri-catcher to fake a network error
+  @vcr
+  Scenario: Getting an error when i get a network timeout
+    Given I get a network timeout
+    When I visit one of the following uris:
+      | uri                         |
+      | https://github.com/mmolhoek |
+    When I do:
+      """ruby
+      require 'rest_client'
+      resource = RestClient::Resource.new("http://github.com/mmolhoek")
+      request = resource.get()
+      """
+    Then I expect it to raise a RestClient::RequestTimeout error
