@@ -11,9 +11,7 @@ end
 Given(/^I do:$/) do |code|
   begin
     eval code
-  rescue RestClient::RequestTimeout => @error
-  rescue
-    raise
+  rescue => @error
   end
 end
 
