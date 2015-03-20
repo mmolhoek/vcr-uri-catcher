@@ -5,7 +5,7 @@
 - ![Forks] (https://img.shields.io/github/forks/mmolhoek/vcr-uri-catcher.svg)
 - ![Licence](https://img.shields.io/badge/license-MIT-blue.svg)
 
-I have been using VCR for a while now and what I was missing was a way to test network failures depite of the fact that those URI's were already recorded by VCR.
+I have been using [cucumber](https://cukes.info/) and [VCR](https://github.com/vcr/vcr) for quite a while now and what I was missing was a way to test network failures depite of the fact that those URI's were already recorded by [VCR](https://github.com/vcr/vcr).
 This little gem provides just that.
 
 ## usage
