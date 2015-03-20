@@ -1,5 +1,10 @@
 # vcr-uri-catcher
 
+- ![Version](https://img.shields.io/gem/v/vcr-uri-catcher.svg?style=flat-square)
+- ![Issues](https://img.shields.io/github/issues/mmolhoek/vcr-uri-catcher.svg)
+- ![Forks] (https://img.shields.io/github/forks/mmolhoek/vcr-uri-catcher.svg)
+- ![Licence](https://img.shields.io/badge/license-MIT-blue.svg)
+
 I have been using VCR for a while now and what I was missing was a way to test network failures depite of the fact that those URI's were already recorded by VCR.
 This little gem provides just that.
 
