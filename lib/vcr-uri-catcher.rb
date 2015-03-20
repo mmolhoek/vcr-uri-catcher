@@ -1,19 +1,32 @@
+
 class URICatcher
+  class NoBlockGiven < StandardError;end
+  class MissingVCR < StandardError;end
+  class MissingURI < StandardError;end
+  class NotStringOrRegexp < StandardError;end
   def self.catcher
     @catcher ||= Catcher.new
   end
   def self.execute(&block)
-    self.catcher.execute(block)
+    if block
+      self.catcher.execute(block)
+    else
+      raise NoBlockGiven
+    end
   end
   def self.when_visiting(uri)
-    self.catcher.when_visiting(uri)
+    if uri.is_a?(String) or uri.is_a?(Regexp)
+      self.catcher.when_visiting(uri)
+    else
+      raise NotStringOrRegexp
+    end
   end
 end
 
 class Catcher
   def initialize
     @uris = {}
-    raise 'you not using VCR...' if VCR.nil?
+    raise URICatcher::MissingVCR if VCR.nil?
     VCR.configure do |c|
       c.before_http_request do |request|
         catch_request(request) if active?
