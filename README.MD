@@ -34,10 +34,10 @@ using step definition:
 
 ```ruby
 Given(/^I get a network timeout$/) do
-  URICatcher::execute lambda {raise RestClient::RequestTimeout}
+  URICatcher::execute {raise RestClient::RequestTimeout}
 end
 ```
-> I use a [lambda](http://www.reactive.io/tips/2008/12/21/understanding-ruby-blocks-procs-and-lambdas/) block to be executed when we get to the configured uri.<br/>
+> Here I tell URICatcher which code block should be executed when we get to the configured uri.<br/>
 > In this case we will raise an RestClient::RequestTimeout, that we want to test 
 
 ```ruby

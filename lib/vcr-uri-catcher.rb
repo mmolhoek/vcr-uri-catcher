@@ -2,7 +2,7 @@ class URICatcher
   def self.catcher
     @catcher ||= Catcher.new
   end
-  def self.execute(block)
+  def self.execute(&block)
     self.catcher.execute(block)
   end
   def self.when_visiting(uri)
