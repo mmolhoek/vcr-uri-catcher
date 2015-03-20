@@ -6,7 +6,5 @@ rescue Bundler::BundlerError => e
   STDERR.puts "Run `bundle install` to install missing gems"
   exit e.status_code
 end
+require_relative '../../lib/vcr-uri-catcher'
 
-$LOAD_PATH.unshift(File.dirname(__FILE__) + '/../../lib')
-#require 'rspec/expectations'
-require 'vcr-uri-catcher'
