@@ -1,5 +1,5 @@
 Given(/^I get a network timeout$/) do
-  URICatcher::execute lambda {raise RestClient::RequestTimeout}
+  URICatcher::execute {raise RestClient::RequestTimeout}
 end
 
 When(/^I visit one of the following uris:$/) do |uris|
