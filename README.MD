@@ -54,13 +54,12 @@ end
 Given(/^I do:$/) do |code|
   begin
     eval code
-  rescue RestClient::RequestTimeout => @error
-  rescue
-    raise
+  rescue => @error
   end
 end
 ```
-> Here we catch the raised RestClient::RequestTimeout and put it in @error, so we can check it in the next step (ore any other).
+> Here we catch the raised RestClient::RequestTimeout and put it in @error, so we can check it in the next step (or any other).<br/>
+
 
 ```ruby
 Then(/^I expect it to raise a (.*) error$/) do |error|
