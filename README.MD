@@ -11,7 +11,7 @@ After requiring the gem in the features/support/vcr.rb somewhere
 require 'vcr-uri-catcher'
 ```
 
-you can use it in the cucmber test:
+you can use it in the [cucumber](https://cukes.info/) test:
 
 ```cucumber
 Feature: Using vcr-uri-catcher to fake a network error
@@ -36,13 +36,21 @@ using step definition:
 Given(/^I get a network timeout$/) do
   URICatcher::execute lambda {raise RestClient::RequestTimeout}
 end
+```
+> I use a [lambda](http://www.reactive.io/tips/2008/12/21/understanding-ruby-blocks-procs-and-lambdas/) block to be executed when we get to the configured uri.<br/>
+> In this case we will raise an RestClient::RequestTimeout, that we want to test 
 
+```ruby
 When(/^I visit one of the following uris:$/) do |uris|
   uris.hashes.each do |row|
     URICatcher::when_visiting(row[:regexp] == 'true' ? %r{#{row[:uri]}} : row[:uri])
   end
 end
+```
+> You can see you could add another table row containing a regexp boolean,<br/>
+> to tell the system the string is a Regexp. Handy for partial uri matching
 
+```ruby
 Given(/^I do:$/) do |code|
   begin
     eval code
@@ -51,11 +59,16 @@ Given(/^I do:$/) do |code|
     raise
   end
 end
+```
+> Here we catch the raised RestClient::RequestTimeout and put it in @error, so we can check it in the next step (ore any other).
 
+```ruby
 Then(/^I expect it to raise a (.*) error$/) do |error|
   expect(@error.class.to_s).to eq(error)
 end
 ```
+> And finally, here we have the step to see what error it was.
+
 
 ## testing
 
@@ -63,6 +76,11 @@ end
 bundle
 bundle exec cucumber
 ```
+
+## todo
+
+* much more tests
+* fix dependancies, so bundle does not keep getting the latest, greatest :)
 
 ## Contributing to vcr-uri-catcher
  

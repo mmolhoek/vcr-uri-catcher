@@ -11,57 +11,70 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Mischa Molhoek"]
-  s.date = "2015-03-15"
-  s.description = "TODO: longer description of your gem"
+  s.date = "2015-03-16"
+  s.description = "execute arbitrary code (like {raise RestClient::RequestTimeout}) the moment vcr tries to access certain configurable uri('s)"
   s.email = "mischamolhoek@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.rdoc"
+    "README.MD"
   ]
   s.files = [
     ".document",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
-    "README.rdoc",
+    "README.MD",
     "Rakefile",
     "VERSION",
+    "features/cassettes/cucumber_tags/vcr.yml",
     "features/step_definitions/vcr-uri-catcher_steps.rb",
     "features/support/env.rb",
+    "features/support/vcr.rb",
     "features/vcr-uri-catcher.feature",
     "lib/vcr-uri-catcher.rb",
     "test/helper.rb",
-    "test/test_vcr-uri-catcher.rb"
+    "test/test_vcr-uri-catcher.rb",
+    "vcr-uri-catcher.gemspec"
   ]
-  s.homepage = "http://github.com/mmolhoek/vcr-uri-catcher"
+  s.homepage = "https://github.com/mmolhoek/vcr-uri-catcher"
   s.licenses = ["MIT"]
   s.rubygems_version = "2.2.1"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "execute arbitrary code (like {raise RestClient::RequestTimeout}) the moment vcr tries to access certain configurable uri('s)"
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_development_dependency(%q<cucumber>, [">= 0"])
+      s.add_development_dependency(%q<cucumber>, ["~> 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 2.0.1"])
-      s.add_development_dependency(%q<simplecov>, [">= 0"])
+      s.add_development_dependency(%q<simplecov>, ["~> 0"])
+      s.add_development_dependency(%q<vcr>, ["~> 2.9"])
+      s.add_development_dependency(%q<rspec>, ["~> 3.2"])
+      s.add_development_dependency(%q<webmock>, ["~> 1.20"])
+      s.add_development_dependency(%q<rest-client>, ["~> 1.6"])
     else
-      s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_dependency(%q<cucumber>, [">= 0"])
+      s.add_dependency(%q<cucumber>, ["~> 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
       s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
-      s.add_dependency(%q<simplecov>, [">= 0"])
+      s.add_dependency(%q<simplecov>, ["~> 0"])
+      s.add_dependency(%q<vcr>, ["~> 2.9"])
+      s.add_dependency(%q<rspec>, ["~> 3.2"])
+      s.add_dependency(%q<webmock>, ["~> 1.20"])
+      s.add_dependency(%q<rest-client>, ["~> 1.6"])
     end
   else
-    s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
-    s.add_dependency(%q<cucumber>, [">= 0"])
+    s.add_dependency(%q<cucumber>, ["~> 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
     s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
-    s.add_dependency(%q<simplecov>, [">= 0"])
+    s.add_dependency(%q<simplecov>, ["~> 0"])
+    s.add_dependency(%q<vcr>, ["~> 2.9"])
+    s.add_dependency(%q<rspec>, ["~> 3.2"])
+    s.add_dependency(%q<webmock>, ["~> 1.20"])
+    s.add_dependency(%q<rest-client>, ["~> 1.6"])
   end
 end
 
