@@ -91,6 +91,10 @@ bundle exec cucumber
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
+## what else
+
+* checkout [Jeweler](https://github.com/technicalpickles/jeweler), which I use for this project. Perfect for making your project management (gem building, deployement, etc a breeze)
+
 ## Copyright
 
 Copyright (c) 2015 Mischa Molhoek. See LICENSE.txt for further details.
