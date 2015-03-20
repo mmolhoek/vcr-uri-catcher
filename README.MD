@@ -80,7 +80,6 @@ bundle exec cucumber
 ## todo
 
 * much more tests
-* fix dependancies, so bundle does not keep getting the latest, greatest :)
 
 ## Contributing to vcr-uri-catcher
  
