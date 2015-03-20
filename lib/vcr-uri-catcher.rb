@@ -3,7 +3,7 @@ class URICatcher
   class NoBlockGiven < StandardError;end
   class MissingVCR < StandardError;end
   class MissingURI < StandardError;end
-  class NotStringOrRegexp < StandardError;end
+  class NotAString < StandardError;end
   def self.catcher
     @catcher ||= Catcher.new
   end
@@ -15,10 +15,11 @@ class URICatcher
     end
   end
   def self.when_visiting(uri)
-    if uri.is_a?(String) or uri.is_a?(Regexp)
+    if uri.is_a?(String)
+      uri = Regexp.new(uri) if uri.scan(/\$|\^|{|}/).length > 0
       self.catcher.when_visiting(uri)
     else
-      raise NotStringOrRegexp
+      raise NotAString
     end
   end
 end

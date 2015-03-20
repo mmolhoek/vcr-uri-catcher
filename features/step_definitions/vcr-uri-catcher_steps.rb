@@ -4,7 +4,7 @@ end
 
 When(/^I visit one of the following uris:$/) do |uris|
   uris.hashes.each do |row|
-    URICatcher::when_visiting(row[:regexp] == 'true' ? %r{#{row[:uri]}} : row[:uri])
+    URICatcher::when_visiting(row[:uri])
   end
 end
 

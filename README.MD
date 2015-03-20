@@ -48,12 +48,11 @@ end
 ```ruby
 When(/^I visit one of the following uris:$/) do |uris|
   uris.hashes.each do |row|
-    URICatcher::when_visiting(row[:regexp] == 'true' ? %r{#{row[:uri]}} : row[:uri])
+    URICatcher::when_visiting(row[:uri])
   end
 end
 ```
-> You can see you could add another table row containing a regexp boolean,<br/>
-> to tell the system the string is a Regexp. Handy for partial uri matching
+> You can enter a string or a regular expression to describe your uri<br/>
 
 ```ruby
 Given(/^I do:$/) do |code|

@@ -18,4 +18,4 @@ Feature: Testing the libraries consistancy
       """ruby
       URICatcher::when_visiting([1,2,3])
       """
-      Then I expect it to raise a URICatcher::NotStringOrRegexp error
+      Then I expect it to raise a URICatcher::NotAString error
