@@ -81,10 +81,6 @@ bundle
 bundle exec cucumber
 ```
 
-## todo
-
-* much more tests
-
 ## Contributing to vcr-uri-catcher
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
