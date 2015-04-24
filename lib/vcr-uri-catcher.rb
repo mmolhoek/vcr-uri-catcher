@@ -30,6 +30,7 @@ class Catcher
     raise URICatcher::MissingVCR if VCR.nil?
     VCR.configure do |c|
       c.before_http_request do |request|
+        STDERR.puts "URICatcher: caught uri #{request.uri}" if $VERBOSE
         catch_request(request) if active?
       end
     end
@@ -55,6 +56,7 @@ class Catcher
     if @uris.has_key?(uri)
       raise "uri #{uri} already registered"
     else
+      STDERR.puts "URICatcher: will try to catch uri #{uri}" if $VERBOSE
       @uris[uri] = { :once => once, :block => block }
     end
   end
@@ -66,6 +68,7 @@ class Catcher
   def catch_request(r)
     if found = @uris.keys.find{|uri| (uri.class == String && uri == r.uri) || (uri.class == Regexp && r.uri =~ uri)}
       begin
+        STDERR.puts "URICatcher: matched uri #{found}, calling block" if $VERBOSE
         @uris[found][:block].call()
       ensure
         @uris.delete(found) if @uris[found][:once]
