@@ -54,7 +54,7 @@ class Catcher
 
   def catch(uri, block, once:true)
     if @uris.has_key?(uri)
-      raise "uri #{uri} already registered"
+      raise "uri #{uri} already registered, can mean previous catch did not catch the uri, check your tests"
     else
       STDERR.puts "URICatcher: will try to catch uri #{uri}" if $VERBOSE
       @uris[uri] = { :once => once, :block => block }
